@@ -6,7 +6,7 @@ module Types
     field :test_field, String, null: false,
       description: "An example field added by the generator"
     def test_field
-      "Hello World"
+      "mensaje desde ruby on rails"
     end
   end
 end

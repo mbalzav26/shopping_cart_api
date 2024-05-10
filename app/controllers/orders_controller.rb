@@ -2,19 +2,32 @@ class OrdersController < ApplicationController
 
     def index
         @orders = Order.all
+        render json: @orders
+    end
+
+    def new
+        @order = Order.new
     end
 
     def create
         @order = Order.new(order_params)
         if @order.save
-            redirect_to @order
+            render json: @order, status: :created, location: @order
         else
-            render :new
+            render json: @order.errors, status: :unprocessable_entity
         end
     end
-
+    
+    def update
+        if @order.update(order_params)
+            render json: @order
+        else
+            render json: @order.errors, status: :unprocessable_entity
+        end
+    end
+    
     def show
-        @order = Order.find(params[:id])
+        render json: @order
     end
 
     private 

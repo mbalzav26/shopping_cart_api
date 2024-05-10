@@ -9,14 +9,14 @@ class PaymentsController < ApplicationController
         @payment = Payment.new(payment_params)
         @payment.order = @order
         if @payment.save
-            redirect_to @order
+            render json: @payment, status: :created, location: @payment
         else
-            render :new
+            render json: @payment.errors, status: :unprocessable_entity
         end
     end
 
     def show
-        @payment = Payment.find(params[:id])
+        render json: @payment
     end
 
     def edit
@@ -26,9 +26,9 @@ class PaymentsController < ApplicationController
     def update
         @payment = Payment.find(params[:id])
         if @payment.update(payment_params)
-            redirect_to @order
+            render  json: @payment
         else
-            render :edit
+            render json: @payment.errors, status: :unprocessable_entity
         end
     end
 
