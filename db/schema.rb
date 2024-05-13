@@ -18,15 +18,19 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_09_145214) do
   create_table "orders", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "state"
     t.string "user_id"
+    t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["deleted_at"], name: "index_orders_on_deleted_at"
   end
 
   create_table "payments", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.integer "amount"
     t.uuid "order_id", null: false
+    t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["deleted_at"], name: "index_payments_on_deleted_at"
     t.index ["order_id"], name: "index_payments_on_order_id"
   end
 
@@ -34,8 +38,10 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_09_145214) do
     t.integer "total", default: 0
     t.boolean "active", default: false
     t.string "user_id"
+    t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["deleted_at"], name: "index_shopping_carts_on_deleted_at"
   end
 
   add_foreign_key "payments", "orders"

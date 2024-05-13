@@ -47,6 +47,6 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem "graphiql-rails", "~> 1.10"
 end
-
+gem 'paranoia', '~> 2.6', '>= 2.6.3'
 gem 'graphql'
 gem "sprockets-rails", "~> 3.4"

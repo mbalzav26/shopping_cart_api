@@ -27,5 +27,7 @@ module Types
     def test_field
       "Mensaje desde ruby on rails"
     end
+    
+    field :orders, resolver: Queries::FetchOrders
   end
 end
