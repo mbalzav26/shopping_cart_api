@@ -1,6 +1,11 @@
 class PaymentsController < ApplicationController
     before_action :set_order
 
+    def index
+        @payments = Payment.all
+        render json: @payments
+    end
+    
     def new
         @payment = Payment.new
     end

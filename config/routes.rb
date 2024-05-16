@@ -9,7 +9,9 @@ Rails.application.routes.draw do
   post "/graphql", to: "graphql#execute"
 
   get "up" => "rails/health#show", as: :rails_health_check
-  resources :orders
+  resources :orders do
+    resources :payments
+  end
   # Defines the root path route ("/")
 
 end
