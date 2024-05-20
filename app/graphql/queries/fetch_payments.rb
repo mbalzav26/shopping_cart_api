@@ -3,7 +3,7 @@ module Queries
         type [Types::PaymentType], null: false
     
         def resolve
-        Payment.all
+            Payment.all
         end
     end
 end

@@ -29,5 +29,6 @@ module Types
     end
     
     field :orders, resolver: Queries::FetchOrders
+    field :payments, resolver: Queries::FetchPayments
   end
 end
