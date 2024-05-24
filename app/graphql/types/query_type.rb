@@ -30,5 +30,6 @@ module Types
     
     field :orders, resolver: Queries::FetchOrders
     field :payments, resolver: Queries::FetchPayments
+    field :shopping_carts,  resolver: Queries::FetchShoppingCarts
   end
 end

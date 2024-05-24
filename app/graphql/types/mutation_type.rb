@@ -14,5 +14,7 @@ module Types
     field :update_payment, mutation: Mutations::UpdatePayment
     field :delete_order, mutation: Mutations::DeleteOrder
     field :delete_payment, mutation: Mutations::DeletePayment
+    field :add_shopping_cart, mutation: Mutations::AddShoppingCart
+    field :update_shopping_cart, mutation: Mutations::UpdateShoppingCart 
   end
 end
