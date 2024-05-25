@@ -3,6 +3,7 @@
 module Types
   class ShoppingCartType < Types::BaseObject
     field :id, ID, null: false
+    field :product_id, String
     field :total, Integer
     field :active, Boolean
     field :user_id, String
