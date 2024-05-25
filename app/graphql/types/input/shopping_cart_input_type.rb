@@ -4,6 +4,7 @@ module Types
             argument :total, Integer, required: true
             argument :active, Boolean, required: true
             argument :user_id, String, required: true
+            argument :product_id, String, required: true
         end
     end
 end
